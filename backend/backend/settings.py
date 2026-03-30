@@ -40,9 +40,12 @@ INSTALLED_APPS = [
     'sensor',
     'aqicn_api',
     'open_weather_api',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'daq_proj',      # the DB name
-        'USER': 'tmp',
-        'PASSWORD': '0841529398',
+        'USER': 'tmp2',
+        'PASSWORD': 'amogus123',
         'HOST': 'kumtho.trueddns.com',          
         'PORT': '33862',                    
     }
