@@ -7,9 +7,10 @@ class OpenWeatherApi(models.Model):
     humidity = models.FloatField(blank=True, null=True)
     ts = models.DateTimeField(auto_now_add=True)
 
-# Create your models here.
-class Meta:
-        db_table = "open_weather_api"
-        
-def __str__(self):
-    return f"open_weather_api"
+    # Create your models here.
+    class Meta:
+            db_table = "open_weather_api"
+            managed = False
+            
+    def __str__(self):
+        return f"open_weather_api"

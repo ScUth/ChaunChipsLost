@@ -8,9 +8,10 @@ class Sensor(models.Model):
     co = models.FloatField(blank=True, null=True)
     ts = models.DateTimeField(auto_now_add=True)
 
-# Create your models here.
-class Meta:
-        db_table = "sensor"
-        
-def __str__(self):
-    return f"sensor"
+    # Create your models here.
+    class Meta:
+            db_table = "sensor"
+            managed = False
+            
+    def __str__(self):
+        return f"sensor"
