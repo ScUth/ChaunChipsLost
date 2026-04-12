@@ -6,7 +6,7 @@ export default function Analysis() {
   let rei =
     "../../GSCyPnOagAADXcG.png" as const;
   return (
-    <div className="min-h-screen w-full bg-[url(https://wallpapercave.com/wp/wp5145886.jpg)] bg-cover bg-center bg-no-repeat flex overflow-hidden">
+    <div className="min-h-screen w-full bg-[url('/pxfuel.jpg')] bg-cover bg-center bg-no-repeat flex overflow-hidden top-0">
       {/* Sidebar - 15% on large screens, hidden by default on mobile */}
       <SideBar />
 

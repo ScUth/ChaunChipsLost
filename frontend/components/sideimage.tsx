@@ -23,7 +23,7 @@ export function SideImage({ imagePath }) {
         aria-label="Sidebar"
       >
         <div className="h-full px-full py-50 overflow-y-auto bg-neutral-primary-soft border-e border-default">
-          {imagePath && <img src={imagePath} alt="sidebar" className="object-contain bottom-0 fixed"/>}
+          {imagePath && <img src={imagePath} alt="sidebar" className="object-contain bottom-0 fixed drop-shadow-2xl"/>}
         </div>
       </aside>
     </div>
