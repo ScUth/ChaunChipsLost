@@ -128,11 +128,16 @@ STATIC_URL = 'static/'
 
 ALLOWED_HOSTS = [
     '192.168.1.57',
+    '192.168.1.57:8000',
     '127.0.0.1',
+    'localhost',
+    'localhost:8000',
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.57:3000",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
 
 CORS_ALLOW_CREDENTIALS = False
