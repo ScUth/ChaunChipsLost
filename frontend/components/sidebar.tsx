@@ -37,30 +37,6 @@ export function SideBar() {
       ),
     },
     {
-      label: "Current",
-      href: "/current",
-      icon: (
-        <svg
-          className="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M15 5v14M9 5v14M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"
-          />
-        </svg>
-      ),
-      // badge: "Pro",
-    },
-    {
       label: "Analysis",
       href: "/analysis",
       icon: (

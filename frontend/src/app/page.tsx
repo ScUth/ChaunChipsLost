@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { SideBar } from "../../components/sidebar";
 import { SideImage } from "../../components/sideimage";
+import { calculateLivability, calculateFormatCO, formatTime } from "../../components/calculations";
 
 export default function Analysis() {
   const [data, setData] = useState(null);
@@ -45,34 +46,8 @@ export default function Analysis() {
     "Analysis component body executed - this should appear in browser console",
   );
 
-  const formatTime = (timestamp: string) => {
-    return new Date(timestamp).toLocaleTimeString("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit",
-      timeZone: "UTC",
-      hour12: false,
-    });
-  };
-
-  const calculateLivability = () => {
-    if (!data) return null;
-    return (
-      10 -
-      data.pm2_5 / 40 -
-      data.pm10 / 50 -
-      (data.co * 2) / 4095 -
-      Math.abs((data.temp - 26) / 5) -
-      Math.abs((data.humidity - 55) / 10)
-    );
-  };
-
-  const calculateFormatCO = () => {
-    if (!data) return null;
-    return ((data.co / 4095) * 20);
-  };
-
-  const livability = calculateLivability();
-  const formatCO = calculateFormatCO();
+  const livability = calculateLivability(data);
+  const formatCO = calculateFormatCO(data);
 
   return (
     <div className="min-h-screen w-full bg-[url(https://gizmodo.com/app/uploads/2021/09/95299b3d1b809192a332ad2c708f0599.jpg)] bg-cover bg-center bg-no-repeat flex overflow-hidden">
@@ -81,12 +56,11 @@ export default function Analysis() {
 
       {/* Main container that holds main + right section */}
       <div className="flex flex-1 min-w-0">
-        {" "}
         {/* ← Important: flex-1 + min-w-0 */}
         {/* 55% */}
         <main className="flex-[55%] sm:ml-[15%] overflow-auto p-4 sm:mr-[30%] sm:my-[2.5%]">
           <div className="flex justify-between bg-black/50 ">
-            <p className="p-4 text-3xl">Thung Kru, Bangkok 10140, Thailand</p>
+            <p className="p-4 text-3xl">Thung Kru, Bangkok 10140, Thailand (Indoor)</p>
             <p className="p-4 text-3xl">
               {data ? formatTime(data.ts) : "XX:XX"}
             </p>
@@ -113,8 +87,6 @@ export default function Analysis() {
                   <p className="text-right">{data ? data.humidity : "000"}%</p>
                 </div>
               </div>
-
-              {/* Right Column (PM10 & CO) */}
               <div className="flex-1 min-w-[200px]">
                 <div className="flex justify-between border-t py-2">
                   <p className="text-left">PM10</p>
