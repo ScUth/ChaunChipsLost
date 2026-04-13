@@ -13,3 +13,21 @@ def latest_weather(request):
         return Response({'error': 'No data found'}, status=404)
     serializer = Open_Weather_ApiSerializers(data)
     return Response(serializer.data)
+
+
+
+@api_view(['GET'])
+def latest_n_weather(request, n):
+    try:
+        n = int(n)
+        n = min(n, 10)
+    except:
+        return Response({'error': 'Invalid n'}, status=400)
+
+    data = OpenWeatherApi.objects.order_by('-ts')[:n]
+
+    if not data:
+        return Response({'error': 'No data found'}, status=404)
+
+    serializer = Open_Weather_ApiSerializers(data, many=True)
+    return Response(serializer.data)

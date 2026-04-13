@@ -16,13 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from aqicn_api.views import latest_aqicn
-from open_weather_api.views import latest_weather
-from sensor.views import latest_sensor 
+from aqicn_api.views import latest_aqicn, latest_n_aqicn
+from open_weather_api.views import latest_weather, latest_n_weather
+from sensor.views import latest_sensor , latest_n_sensor
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/aqicn/latest/', latest_aqicn, name='latest_aqicn'),
+    path('sensor/latest/<int:n>/', latest_n_sensor, name='latest_aqicn_with_n_data'),
+    
     path('api/weather/latest/', latest_weather, name='latest_weather'), 
+    path('api/aqicn/latest/<int:n>/', latest_n_aqicn, name='latest_weather_with_n_data'),
+    
     path('sensor/latest/', latest_sensor, name='latest_sensor'),
+    path('api/weather/latest/<int:n>/', latest_n_weather, name='latest_sensor_with_n_data'),
 ]
