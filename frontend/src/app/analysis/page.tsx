@@ -49,12 +49,12 @@ export default function Analysis() {
     { name: "CO", value: Number(((data.co * 2) / 4095).toFixed(3)) },
     { name: "Temp", value: Number(Math.abs((data.temp - 26) / 5).toFixed(3)) },
     { name: "Humidity", value: Number(Math.abs((data.humidity - 55) / 10).toFixed(3)) },
-  ] : [];
+  ].sort((a, b) => b.value - a.value) : [];
 
   const COLORS = ['#ef4444', '#f97316', '#eab308', '#3b82f6', '#06b6d4'];
 
   return (
-    <div className="min-h-screen w-full bg-[url('/pxfuel.jpg')] bg-cover bg-center bg-no-repeat flex overflow-hidden top-0">
+    <div className="min-h-screen w-full bg-[url('/pxfuel.jpg')] bg-cover bg-center bg-no-repeat flex overflow-hidden bg-fixed top-0">
       {/* Sidebar - 15% on large screens, hidden by default on mobile */}
       <SideBar />
 
@@ -84,6 +84,8 @@ export default function Analysis() {
                       cx="50%"
                       cy="50%"
                       outerRadius="80%"
+                      startAngle={90}
+                      endAngle={-270}
                       dataKey="value"
                       label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                     >

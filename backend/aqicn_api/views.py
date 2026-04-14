@@ -15,7 +15,7 @@ def latest_aqicn(request):
 def latest_n_aqicn(request, n):
     try:
         n = int(n)
-        n = min(n, 10)
+        # n = min(n, 10)
     except:
         return Response({'error': 'Invalid n'}, status=400)
 

@@ -18,7 +18,7 @@ def latest_sensor(request):
 def latest_n_sensor(request, n):
     try:
         n = int(n)
-        n = min(n, 10)
+        # n = min(n, 10)
     except:
         return Response({'error': 'Invalid n'}, status=400)
 
