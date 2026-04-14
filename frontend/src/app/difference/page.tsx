@@ -251,7 +251,7 @@ export default function Analysis() {
               </div>
               <div className="flex justify-between border-t py-2">
                 <p className="text-left">Humidity</p>
-                <p className="text-right">{data ? data.humidity : "000"}%</p>
+                <p className="text-right">{data ? data.humidity : "XXX"}%</p>
               </div>
               <div className="flex justify-between border-t py-2">
                 <p className="text-left">CO</p>
@@ -290,7 +290,7 @@ export default function Analysis() {
                   <p className="text-left">Humidity</p>
                   <p className="text-white/50 italic">(OpenWeather)</p>
                 </div>
-                <p className="text-right">{dataWT ? dataWT.humidity : "000"}%</p>
+                <p className="text-right">{dataWT ? dataWT.humidity : "XXX"}%</p>
               </div>
               <div className="flex justify-between border-t py-2">
                 <div className="flex justify-between gap-3">
