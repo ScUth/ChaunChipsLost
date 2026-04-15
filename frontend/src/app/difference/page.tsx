@@ -163,7 +163,7 @@ export default function Analysis() {
     return (
       10 -
       dataAQI.pm2_5 / 40 -
-      dataAQI.pm10 / 50 -
+      dataAQI.pm10 / 80 -
       dataAQI.co / 10 -
       Math.abs((dataWT.temp - 26) / 5) -
       Math.abs((dataWT.humidity - 55) / 10)

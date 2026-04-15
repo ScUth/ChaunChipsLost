@@ -103,7 +103,7 @@ export default function Analysis() {
         <main className="flex-[55%] sm:ml-[15%] overflow-auto p-4 sm:mr-[30%] sm:my-[2.5%]">
           <div className="flex justify-between bg-black/50 ">
             <p className="p-4 text-3xl">
-              Thung Kru, Bangkok 10140, Thailand (Indoor)
+              Thung Khru, Bangkok 10140, Thailand (Indoor)
             </p>
             <p className="p-4 text-3xl">
               {data ? formatTime(data.ts) : "XX:XX"}

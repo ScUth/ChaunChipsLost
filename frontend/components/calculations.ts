@@ -3,7 +3,7 @@ export const calculateLivability = (data: any) => {
   return (
     10 -
     data.pm2_5 / 40 -
-    data.pm10 / 50 -
+    data.pm10 / 80 -
     (data.co * 2) / 4095 -
     Math.abs((data.temp - 26) / 5) -
     Math.abs((data.humidity - 55) / 10)

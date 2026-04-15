@@ -10,11 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Create directory for ML models
+ML_MODELS_DIR = BASE_DIR / 'ml_models'
+os.makedirs(ML_MODELS_DIR, exist_ok=True)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -42,6 +46,7 @@ INSTALLED_APPS = [
     'open_weather_api',
     'rest_framework',
     'corsheaders',
+    'forecast',
 ]
 
 MIDDLEWARE = [
@@ -126,6 +131,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+""" for cors setting reminder that this is for using on the public network, if
+    your're only using the localhost feels free the remove all the lines below 
+"""
 ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True

@@ -19,6 +19,7 @@ from django.urls import path
 from aqicn_api.views import latest_aqicn, latest_n_aqicn
 from open_weather_api.views import latest_weather, latest_n_weather
 from sensor.views import latest_sensor , latest_n_sensor
+from forecast.views import TrainModelAPIView, PredictAPIView, PredictFromLastReadingAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +31,8 @@ urlpatterns = [
     
     path('sensor/latest/', latest_sensor, name='latest_sensor'),
     path('api/weather/latest/<int:n>/', latest_n_weather, name='latest_sensor_with_n_data'),
+    
+    path('api/train/', TrainModelAPIView.as_view(), name='train'),
+    path('api/predict/', PredictAPIView.as_view(), name='predict'),
+    path('api/predict/latest/', PredictFromLastReadingAPIView.as_view(), name='predict-latest'),
 ]

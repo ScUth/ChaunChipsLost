@@ -1,9 +1,10 @@
 "use client"
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export function SideBar() {
   const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const navItems = [
     {
@@ -153,7 +154,7 @@ export function SideBar() {
         <img src={"../../tg_white.png"} className="px-5 cursor-pointer" onClick={logoClick}/>
           <ul className=" font-medium py-20">
             {navItems.map((item) => (
-              <li key={item.label} className="hover:bg-black/20 hover:backdrop-blur-md">
+              <li key={item.label} className={`hover:bg-black/20 hover:backdrop-blur-md ${pathname === item.href ? 'backdrop-blur-md bg-black/20' : ''}`}>
                 <a
                   href={item.href}
                   className="flex items-center px-2 py-4 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group px-6"
