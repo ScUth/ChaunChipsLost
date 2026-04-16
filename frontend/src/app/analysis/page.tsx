@@ -61,7 +61,7 @@ export default function Analysis() {
       {/* Main container that holds main + right section */}
       <div className="flex flex-1 min-w-0">
         <main className="flex-[55%] sm:ml-[15%] overflow-auto p-4 sm:mr-[30%] sm:my-[2.5%]">
-          <div className="bg-black/50 pb-6">
+          <div className="bg-white/50 dark:bg-black/50 pb-6">
             <p className="p-4 text-3xl">Livability Calculate @{data ? formatTime(data.ts) : "XX:XX"}</p>
             <div className="flex pl-4 pb-4">
               <MathAlign
@@ -76,7 +76,7 @@ export default function Analysis() {
             </div>
             {data && (
               <div className="w-full h-80 mt-2 p-4 pb-4 backdrop-blur-md">
-                <h3 className="text-3xl mb-2 text-white/90">Parameter Penalties</h3>
+                <h3 className="text-3xl mb-2 text-black/90 dark:text-white/90">Parameter Penalties</h3>
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie

@@ -101,7 +101,7 @@ export default function Analysis() {
         {/* ← Important: flex-1 + min-w-0 */}
         {/* 55% */}
         <main className="flex-[55%] sm:ml-[15%] overflow-auto p-4 sm:mr-[30%] sm:my-[2.5%]">
-          <div className="flex justify-between bg-black/50 ">
+          <div className="flex justify-between bg-white/50 dark:bg-black/50 ">
             <p className="p-4 text-3xl">
               Thung Khru, Bangkok 10140, Thailand (Indoor)
             </p>
@@ -109,7 +109,7 @@ export default function Analysis() {
               {data ? formatTime(data.ts) : "XX:XX"}
             </p>
           </div>
-          <div className="bg-black/50 mt-1">
+          <div className="bg-white/50 dark:bg-black/50 mt-1">
             <div className="flex justify-between pt-4 pr-4 pl-4">
               <p className="">Temperature</p>
               <p className="">Livability Index</p>
@@ -147,7 +147,7 @@ export default function Analysis() {
               </div>
             </div>
           </div>
-          <div className="mt-1 bg-black/60 p-4">
+          <div className="mt-1 bg-white/50 dark:bg-black/60 p-4">
             <div className="flex flex-col sm:flex-row justify-between items-center mb-4">
               <h2 className="text-2xl mb-2 sm:mb-0">
                 Trend Analysis
@@ -182,21 +182,22 @@ export default function Analysis() {
               {datas && datas.length > 0 ? (
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={chartData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
                     <XAxis
                       dataKey="ts"
                       tickFormatter={(tick) => formatTime(tick)}
-                      stroke="#888"
+                      stroke="var(--chart-axis)"
                     />
-                    <YAxis stroke="#888" />
+                    <YAxis stroke="var(--chart-axis)" />
                     <Tooltip
                       labelFormatter={(label) => {
                         const date = new Date(label as string);
                         return date.toLocaleDateString("en-GB", { timeZone: "UTC" }) + " " + formatTime(label as string);
                       }}
                       contentStyle={{
-                        backgroundColor: "#222",
-                        borderColor: "#444",
+                        backgroundColor: "var(--chart-tooltip-bg)",
+                        borderColor: "var(--chart-tooltip-border)",
+                        color: "var(--chart-tooltip-text)"
                       }}
                     />
                     <Legend />
@@ -230,7 +231,7 @@ export default function Analysis() {
                                   : selectedAttribute
                       }
                       dataKey={selectedAttribute}
-                      stroke="#8884d8"
+                      stroke="var(--chart-line-1)"
                       strokeWidth={2}
                       dot={{ r: 4 }}
                       activeDot={{ r: 6 }}

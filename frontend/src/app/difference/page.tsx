@@ -224,14 +224,14 @@ export default function Analysis() {
       <SideBar />
       <div className="flex flex-1 min-w-0">
         <main className="flex-[55%] sm:ml-[15%] overflow-auto p-4 sm:mr-[30%] sm:my-[2.5%]">
-          <div className="flex justify-between bg-black/50 ">
+          <div className="flex justify-between bg-white/50 dark:bg-black/50 ">
             <p className="p-4 text-3xl">Bangkok, Thailand</p>
             <p className="p-4 text-3xl">
               {data ? formatTime(data.ts) : "XX:XX"}
             </p>
           </div>
           <div className="flex justify-between mt-1 w-full">
-            <div className="w-1/2 bg-black/70 p-4">
+            <div className="w-1/2 bg-white/50 dark:bg-black/70 p-4">
               <p className="text-4xl text-center">Indoor (IOT)</p>
               <p className="text-xl mt-4">Livability Index</p>
               <p className="text-6xl pb-4">
@@ -258,7 +258,7 @@ export default function Analysis() {
                 <p className="text-right">{formatCOIN !== null ? formatCOIN.toFixed(2) : "XXX.XX"}</p>
               </div>
             </div>
-            <div className="w-1/2 bg-black/70 p-4">
+            <div className="w-1/2 bg-white/50 dark:bg-black/70 p-4">
               <p className="text-4xl text-center">Outdoor (API)</p>
               <p className="text-xl mt-4">Livability Index</p>
               <p className="text-6xl pb-4">
@@ -267,35 +267,35 @@ export default function Analysis() {
               <div className="flex justify-between border-t py-2">
                 <div className="flex justify-between gap-3">
                   <p className="text-left">Temperature</p>
-                  <p className="text-white/50 italic">(OpenWeather)</p>
+                  <p className="text-black/50 dark:text-white/50 italic">(OpenWeather)</p>
                 </div>
                 <p className="text-right">{dataWT ? dataWT.temp : "XX"}°C</p>
               </div>
               <div className="flex justify-between border-t py-2">
                 <div className="flex justify-between gap-3">
                   <p className="text-left">PM2.5</p>
-                  <p className="text-white/50 italic">(AQICN)</p>
+                  <p className="text-black/50 dark:text-white/50 italic">(AQICN)</p>
                 </div>
                 <p className="text-right">{dataAQI ? dataAQI.pm2_5 : "XX.XX"} μg/m³</p>
               </div>
               <div className="flex justify-between border-t py-2">
                 <div className="flex justify-between gap-3">
                   <p className="text-left">PM10</p>
-                  <p className="text-white/50 italic">(AQICN)</p>
+                  <p className="text-black/50 dark:text-white/50 italic">(AQICN)</p>
                 </div>
                 <p className="text-right">{dataAQI ? dataAQI.pm10 : "XX.XX"} μg/m³</p>
               </div>
               <div className="flex justify-between border-t py-2">
                 <div className="flex justify-between gap-3">
                   <p className="text-left">Humidity</p>
-                  <p className="text-white/50 italic">(OpenWeather)</p>
+                  <p className="text-black/50 dark:text-white/50 italic">(OpenWeather)</p>
                 </div>
                 <p className="text-right">{dataWT ? dataWT.humidity : "XXX"}%</p>
               </div>
               <div className="flex justify-between border-t py-2">
                 <div className="flex justify-between gap-3">
                   <p className="text-left">CO</p>
-                  <p className="text-white/50 italic">(AQICN)</p>
+                  <p className="text-black/50 dark:text-white/50 italic">(AQICN)</p>
                 </div>
                 <p className="text-right">{dataAQI ? dataAQI.co : "XX.XX"}</p>
               </div>
@@ -303,7 +303,7 @@ export default function Analysis() {
             {/* end separate */}
           </div>
           
-          <div className="mt-1 bg-black/60 p-4">
+          <div className="mt-1 bg-white/50 dark:bg-black/60 p-4">
             <div className="flex flex-col sm:flex-row justify-between items-center mb-4">
               <h2 className="text-2xl mb-2 sm:mb-0">
                 Trend Analysis
@@ -338,21 +338,22 @@ export default function Analysis() {
               {datas && datas.length > 0 ? (
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={chartData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
                     <XAxis
                       dataKey="ts"
                       tickFormatter={(tick) => formatTime(tick)}
-                      stroke="#888"
+                      stroke="var(--chart-axis)"
                     />
-                    <YAxis stroke="#888" />
+                    <YAxis stroke="var(--chart-axis)" />
                     <Tooltip
                       labelFormatter={(label) => {
                         const date = new Date(label as string);
                         return date.toLocaleDateString("en-GB", { timeZone: "UTC" }) + " " + formatTime(label as string);
                       }}
                       contentStyle={{
-                        backgroundColor: "#222",
-                        borderColor: "#444",
+                        backgroundColor: "var(--chart-tooltip-bg)",
+                        borderColor: "var(--chart-tooltip-border)",
+                        color: "var(--chart-tooltip-text)"
                       }}
                     />
                     <Legend />
@@ -374,7 +375,7 @@ export default function Analysis() {
                       type="monotone"
                       name={`Indoor ${selectedAttribute === "temp" ? "Temperature" : selectedAttribute === "humidity" ? "Humidity" : selectedAttribute === "pm2_5" ? "PM2.5" : selectedAttribute === "pm10" ? "PM10" : "CO"}`}
                       dataKey={`indoor_${selectedAttribute}`}
-                      stroke="#8884d8"
+                      stroke="var(--chart-line-1)"
                       strokeWidth={2}
                       dot={{ r: 4 }}
                       activeDot={{ r: 6 }}
@@ -383,7 +384,7 @@ export default function Analysis() {
                       type="monotone"
                       name={`Outdoor ${selectedAttribute === "temp" ? "Temperature" : selectedAttribute === "humidity" ? "Humidity" : selectedAttribute === "pm2_5" ? "PM2.5" : selectedAttribute === "pm10" ? "PM10" : "CO"}`}
                       dataKey={`outdoor_${selectedAttribute}`}
-                      stroke="#82ca9d"
+                      stroke="var(--chart-line-2)"
                       strokeWidth={2}
                       dot={{ r: 4 }}
                       activeDot={{ r: 6 }}

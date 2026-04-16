@@ -150,8 +150,9 @@ export function SideBar() {
         className="fixed top-0 left-0 z-40 w-[15%] h-full transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
         >
-        <div className="h-full px-full py-30 overflow-y-auto bg-neutral-primary-soft border-default bg-black/50">
-        <img src={"../../tg_white.png"} className="px-5 cursor-pointer" onClick={logoClick}/>
+        <div className="h-full px-full py-30 overflow-y-auto bg-neutral-primary-soft border-default bg-white/50 dark:bg-black/50 ">
+        <img src={"../../tg_white.png"} className="px-5 cursor-pointer hidden dark:block" onClick={logoClick}/>
+        <img src={"../../tg_black.png"} className="px-5 cursor-pointer block dark:hidden" onClick={logoClick}/>
           <ul className=" font-medium py-20">
             {navItems.map((item) => (
               <li key={item.label} className={`hover:bg-black/20 hover:backdrop-blur-md ${pathname === item.href ? 'backdrop-blur-md bg-black/20' : ''}`}>

@@ -3,6 +3,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --chart-grid: #e5e7eb;
+  --chart-axis: #374151;
+  --chart-tooltip-bg: #ffffff;
+  --chart-tooltip-border: #d1d5db;
+  --chart-tooltip-text: #111827;
+  --chart-line-1: #4f46e5;
+  --chart-line-2: #16a34a;
 }
 
 @theme inline {
@@ -16,6 +23,13 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --chart-grid: #444444;
+    --chart-axis: #888888;
+    --chart-tooltip-bg: #222222;
+    --chart-tooltip-border: #444444;
+    --chart-tooltip-text: #ffffff;
+    --chart-line-1: #8884d8;
+    --chart-line-2: #82ca9d;
   }
 }
 

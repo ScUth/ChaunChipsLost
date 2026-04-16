@@ -82,17 +82,17 @@ export default function Analysis() {
       {/* Main container that holds main + right section */}
       <div className="flex flex-1 min-w-0">
         <main className="flex-[55%] sm:ml-[15%] overflow-auto p-4 sm:mr-[30%] sm:my-[2.5%]">
-          <div className="flex bg-black/80 mb-1 justify-center">
+          <div className="flex bg-white/50 dark:bg-black/80 mb-1 justify-center">
             <p className="p-4 text-3xl italic">
               Thung Khru, Bangkok 10140, Thailand
             </p>
           </div>
-          <div className="flex bg-black/60 backdrop-blur-md">
+          <div className="flex bg-white/50 dark:bg-black/60 backdrop-blur-md">
             <p className="p-4 text-3xl">
               {data ? formatTime(data.ts) : "XX:XX"} (Current)
             </p>
           </div>
-          <div className="bg-black/60 mt-1">
+          <div className="bg-white/50 dark:bg-black/60 mt-1">
             <div className="flex justify-between pt-4 pr-4 pl-4">
               <p className="">Temperature</p>
               <p className="">Livability Index</p>
@@ -130,12 +130,12 @@ export default function Analysis() {
               </div>
             </div>
           </div>
-          <div className="flex bg-black/60 mt-5 backdrop-blur-md">
-            <p className="p-4 text-3xl text-yellow-300 bg-blur">
+          <div className="flex bg-white/50 dark:bg-black/60 mt-5 backdrop-blur-md">
+            <p className="p-4 text-3xl text-red-600 dark:text-yellow-300 bg-blur">
               {predictData ? formatTime(predictData.timestamp) : "XX:XX"} (Predicted)
             </p>
           </div>
-          <div className="bg-black/60 mt-1 text-yellow-300">
+          <div className="bg-white/50 dark:bg-black/60 mt-1 text-red-600 dark:text-yellow-300">
             <div className="flex justify-between pt-4 pr-4 pl-4">
               <p className="">Temperature</p>
               <p className="">Livability Index</p>
