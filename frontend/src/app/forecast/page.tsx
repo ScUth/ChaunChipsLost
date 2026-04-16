@@ -75,7 +75,7 @@ export default function Analysis() {
   const formatPredictedCO = calculateFormatCO(predictData);
 
   return (
-    <div className="min-h-screen w-full bg-[url(https://scontent.fbkk29-7.fna.fbcdn.net/v/t39.30808-6/485148342_1136888541817903_778452936387835507_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=aKiFyNLKIi8Q7kNvwFt4vr8&_nc_oc=Adoa60palfJWsr8BcS4GCyPE3H9jERtQwdXeTUTdW3VauPIM1AM64_dV34OS3tGUu_AfBux9C0Y5qC18BN9DNaNu&_nc_zt=23&_nc_ht=scontent.fbkk29-7.fna&_nc_gid=Ygph8O-BeMISiNs-GAdpDg&_nc_ss=7a389&oh=00_Af0cETtNVWJxzgcEezR-O3hxLXPlqi7xitaXXFyd4BeiGg&oe=69E0108D)] bg-cover bg-center bg-no-repeat bg-fixed flex overflow-hidden">
+    <div className="min-h-screen w-full bg-[url(https://4.bp.blogspot.com/-NPrBR59f2Jg/Vv85lzOsJeI/AAAAAAAAA_I/QdN4FhsDiq0tjAgvXYzHiy9nym-5KPQcg/s1600/Kyoukai.no.Kanata.full.1862336.jpg)] bg-cover bg-center bg-no-repeat bg-fixed flex overflow-hidden">
       {/* Sidebar - 15% on large screens, hidden by default on mobile */}
       <SideBar />
 
