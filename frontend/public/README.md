@@ -18,7 +18,7 @@
 - **Character**: Mirai Kuriyama
 - **Source**: https://ja.gelbooru.com/index.php?page=post&s=list&tags=kyoukai_no_kanata&pid=378
 - **Original Credit**: Kyoto Amimation
-- **Edited by**: Chaiyapat Kumtho with crop technique using Photoshop CC 2026
+- **Edited by**: Chaiyapat Kumtho with die-cut technique using Photoshop CC 2026
 ## <img src="pxfuel.jpg" height="100"> pxfuel.jpg
 - **Character**: Kumiko Oumae & Reina Kousaka
 - **Source**: https://www.pxfuel.com/en/desktop-wallpaper-vtoks
