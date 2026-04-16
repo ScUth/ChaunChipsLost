@@ -1,5 +1,12 @@
 #  Touch grass
 
+## Important!!!
+run
+```bash
+curl -X POST http://127.0.0.1:8000/api/train/
+```
+every time after starting the back-end (note: replace 127.0.0.1:8000 if using difference ip or port)
+
 ## Prerequisites
 Make sure you have the following installed on your machine:
 
