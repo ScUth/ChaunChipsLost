@@ -1,6 +1,6 @@
 #  Touch grass
 
-## 📌 Prerequisites
+## Prerequisites
 Make sure you have the following installed on your machine:
 
 - Python 3.8 or higher  
@@ -8,7 +8,7 @@ Make sure you have the following installed on your machine:
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 1. Clone or Download the Repository
 Navigate to the project folder in your terminal:
@@ -39,4 +39,14 @@ source venv/bin/activate
 
 ```bash
 pip install -r requirements.txt
+```
+
+### 4. Run the server
+for localhost
+```bash
+python3 manage.py runserver
+```
+for shared network or port forwarding
+```bash
+python3 manage.py runserver 0.0.0.0:8000
 ```
