@@ -22,6 +22,22 @@ class AirQualityPredictor:
         df['timestamp'] = pd.to_datetime(df['timestamp'])
         df = df.sort_values('timestamp')
         
+        # Remove outliers for pm2_5 and pm10 to improve model stability
+        # We use IQR method (3x to catch extreme anomalies but keep natural spikes)
+        for var in ['pm2_5', 'pm10']:
+            Q1 = df[var].quantile(0.25)
+            Q3 = df[var].quantile(0.75)
+            IQR = Q3 - Q1
+            
+            lower_bound = max(0, Q1 - 3 * IQR)
+            upper_bound = Q3 + 3 * IQR
+            
+            # Replace outliers with NaN
+            df.loc[(df[var] < lower_bound) | (df[var] > upper_bound), var] = np.nan
+            
+            # Interpolate to fill missing data without breaking time-series sequence
+            df[var] = df[var].interpolate(method='linear').bfill().ffill()
+
         # Create lag features
         for var in ['pm2_5', 'pm10', 'temp', 'humidity', 'co']:
             df[f'{var}_lag1'] = df[var].shift(1)
