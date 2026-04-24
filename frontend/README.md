@@ -1,8 +1,14 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Prepatation
+**create .env.local file from .env.local.example**
 ## Getting Started
 
-First, install the package:
+First, locate and install the package:
+```bash
+cd frontend
+```
+
 ```bash
 npm i
 ```
