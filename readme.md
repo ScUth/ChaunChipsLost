@@ -1,4 +1,5 @@
 # Touch grass
+## For installing the project followed the guide on `/backend` and `/frontend` file readme.md
 ## Overview
 Touch Grass is an environmental monitoring project that evaluates the livability of a district and compare to the livabilty of your current place. By collecting real-time environmental data using a KidBright IoT board and sensors. The system measures factors such as temperature, air quality, dust concentration, carbon monoxide levels, and noise pollution. These measurements of a Livability Index that indicates which area between your current place and your district are more comfortable and healthy.
 
