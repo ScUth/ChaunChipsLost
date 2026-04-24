@@ -13,6 +13,8 @@ Make sure you have the following installed on your machine:
 - Python 3.8 or higher  
 - pip (Python package installer)
 
+**also create .env file from .env.example**
+
 ---
 
 ## Installation & Setup
